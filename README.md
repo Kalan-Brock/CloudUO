@@ -45,10 +45,9 @@ Place a copy of your Ultima Online client files into the client folder.
 I cannot legally provide these files, but they are free to download @ https://uo.com/client-download/.
 
 
-
 ### Shard Files
 
-Place your shard files in the shard folder.
+Place your shard files in the shard folder.  If you don't have a shard, a fresh copy of ServUO will be pulled automatically.
 
 ---
 
