@@ -35,6 +35,10 @@ Really though, sky is the limit.
 
 ## Preperation
 
+### .env
+
+Set up your shard options in the .env file.  CloudUO will handle the rest.
+
 ### Client Files
 
 Place a copy of your Ultima Online client files into the client folder.  
