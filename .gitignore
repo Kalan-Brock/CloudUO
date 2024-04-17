@@ -1,4 +1,0 @@
-client/*
-!client/.gitkeep
-shard/*
-!shard/.gitkeep
