@@ -10,5 +10,6 @@ sed -i "s/SHARD_NAME/${SHARD_NAME}/" /shard/Scripts/Misc/ServerList.cs
 sed -i "s/SHARD_PORT/${SHARD_PORT}/" /shard/Scripts/Misc/ServerList.cs
 sed -i "s/SHARD_PORT/${SHARD_PORT}/" /shard/Scripts/Misc/SocketOptions.cs
 
-dotnet build
+make
 mono ServUO.exe
+

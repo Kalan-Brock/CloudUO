@@ -9,7 +9,7 @@ if [ "$1" == "build" ]; then
     fi
 
     docker-compose -f clouduo/build/docker-compose.yml build
-    sudo rm -rf clouduo/build/servuo/
+    # sudo rm -rf clouduo/build/servuo/
     echo "Cloud UO core has been built."
     exit 0
 fi

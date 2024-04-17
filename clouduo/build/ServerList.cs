@@ -127,7 +127,8 @@ namespace Server.Misc
             }
             catch(Exception e)
             {
-                Diagnostics.ExceptionLogging.LogException(e);
+                // Diagnostics.ExceptionLogging.LogException(e);
+                Console.WriteLine("ServerList: Unable to resolve hostname '{0}'", addr);
             }
         }
 

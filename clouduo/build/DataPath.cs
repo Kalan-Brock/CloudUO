@@ -103,7 +103,7 @@ namespace Server.Misc
             }
             catch (Exception e)
             {
-                Diagnostics.ExceptionLogging.LogException(e);
+                Console.WriteLine("DataPath: Unable to resolve path for '{0}': {1}", subName, e);
                 return null;
             }
         }
