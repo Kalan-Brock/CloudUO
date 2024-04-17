@@ -17,16 +17,23 @@ RUN apt update; \
 RUN apt-get update; \
   apt-get install -y dotnet-sdk-8.0
 
-COPY entrypoint.sh /entrypoint.sh
+COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
-COPY servuo /shard
-COPY AccountPrompt.cs /shard/Scripts/Misc/AccountPrompt.cs
-COPY DataPath.cs /shard/Scripts/Misc/DataPath.cs
-COPY ServerList.cs /shard/Scripts/Misc/ServerList.cs
-COPY SocketOptions.cs /shard/Scripts/Misc/SocketOptions.cs
+COPY ./servuo /shard
+COPY ./AccountPrompt.cs /shard/Scripts/Misc/AccountPrompt.cs
+COPY ./DataPath.cs /shard/Scripts/Misc/DataPath.cs
+COPY ./ServerList.cs /shard/Scripts/Misc/ServerList.cs
+COPY ./SocketOptions.cs /shard/Scripts/Misc/SocketOptions.cs
 
 WORKDIR /shard
 
 EXPOSE 2593
+EXPOSE 80
+EXPOSE 443
+EXPOSE 5000
+EXPOSE 5001
+EXPOSE 22
+EXPOSE 8080
+EXPOSE 8081
 
 ENTRYPOINT ["/entrypoint.sh"]

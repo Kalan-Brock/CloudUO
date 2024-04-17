@@ -4,7 +4,7 @@ This plugin allows you to broadcast messages to your Discord server.
 
 ## Installation
 
-Simply include the plugin in your shard's docker-compose.yml file and direct it to your custom script folder:
+Include the plugin in your shard's docker-compose.yml file and direct it to your custom script folder:
 
 ```yaml
 services:
