@@ -34,5 +34,8 @@ RUN echo "clouduo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 WORKDIR /shard
 
 EXPOSE 2593
+EXPOSE 2594
+EXPOSE 2595
+EXPOSE 2599
 
 ENTRYPOINT ["/entrypoint.sh"]

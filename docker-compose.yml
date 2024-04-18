@@ -1,0 +1,55 @@
+version: '3.7'
+
+services:
+
+  clouduo-web:
+    build:
+      context: ./clouduo/web
+      dockerfile: Dockerfile
+    image: clouduo-web:latest
+    networks:
+      - clouduo
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./clouduo/web:/app
+      - ./shards:/app/storage/shards
+      - ./clouduo/templates:/app/storage/templates
+    restart: unless-stopped
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mariadb:latest
+    networks:
+      - clouduo
+    volumes:
+     - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: clouduo
+      MYSQL_USER: clouduo
+      MYSQL_PASSWORD: clouduo
+    restart: unless-stopped
+
+  matomo:
+    image: matomo:latest
+    networks:
+      - clouduo
+    volumes:
+      - matomo:/var/www/html
+    environment:
+      MATOMO_DATABASE_HOST: mysql
+      MATOMO_DATABASE_ADAPTER: MYSQLI
+      MATOMO_DATABASE_TABLES_PREFIX: matomo_
+      MATOMO_DATABASE_NAME: matomo
+      MATOMO_DATABASE_USER: matomo
+      MATOMO_DATABASE_PASSWORD: matomo
+      MATOMO_DATABASE_PORT: 3306
+    restart: unless-stopped
+
+volumes:
+  mysql-data:
+    
+networks:
+  clouduo:
+    external: true

@@ -1,56 +1,31 @@
-# CloudUO
+# Cloud UO
 
-Cloud host your ServUO shard using Docker.
+A dockerized platform for creating and hosting scalable Ultima Online servers (shards).
 
-## Why?
+Several Features:
 
-This allows you to do some of the following:
-
-- Host a shard on services such as Digital Ocean, saving tons on server hosting.
-- Host on any kind of machine that runs Docker, even a mac.
-- Take snapshots.
-- Clone the entire server box.
-- Use unlimited virtual volumes.
-- Create virtual networks of different shards.
-- Spin up instances with different configuration much more quickly.
-- Bring in the use of kubernetes.
-- Load balance shard traffic.
-- Create a portability for our code in a future-thinking way.
-
-Really though, sky is the limit.
-
-## Requirements
-
-- docker
-- docker-compose
-- Ultima Online client files
-
----
-
-## Supported Emulators
-
-- ServUO [https://www.servuo.com/]
-
----
-
-## Preperation
-
-### .env
-
-Set up your shard options in the .env file.  CloudUO will handle the rest.
-
-### Client Files
-
-Place a copy of your Ultima Online client files into the client folder.  
-I cannot legally provide these files, but they are free to download @ https://uo.com/client-download/.
-
-
-### Shard Files
-
-Place your shard files in the shard folder.  If you don't have a shard, a fresh copy of ServUO will be pulled automatically.
-
----
-
-## Start The Shard
-
-```docker-compose up -d```
+    - Open Source
+    - Script Creator
+    - Admin Dashboard
+    - Shard API
+    - Shard Website
+    - Shard Analytics
+    - Multi Shard / Server List
+    - Scalable
+    - Kubernetes Compatible
+    - Copy/Dupe Shards
+    - Automatic Backups
+    - Shard Templates
+    - Community / Custom Shard Templates
+    - Public Script Repository
+    - Plugins
+    - Themes
+    - Custom Client Compatibile
+    - Custom Map Compatibile
+    - Runs On Docker / Docker-Compose
+    - Save Templates
+    - Spawn Templates
+    - Run Several Shards In Seconds With Minimal Files Via Data Layering
+    - Web GUI Shard Manager
+    - Web Donation Shop
+    - Tailscale Compatible
