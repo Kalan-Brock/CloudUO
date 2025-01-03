@@ -1,8 +1,13 @@
 FROM ubuntu:20.04 as clouduo-system
 ARG DEBIAN_FRONTEND=noninteractive
 
+ARG OWNER_USERNAME
+ARG OWNER_PASSWORD
+ARG SHARD_NAME
+ARG SHARD_PORT
+
 RUN apt-get update; \
-  apt-get install -y wget git nano apt-transport-https zlib1g-dev ca-certificates gnupg unzip sudo make
+  apt-get install -y wget git nano apt-transport-https zlib1g-dev ca-certificates gnupg unzip sudo make rsync
 
 RUN wget https://packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 RUN dpkg -i packages-microsoft-prod.deb
@@ -24,6 +29,16 @@ COPY ./DataPath.cs /shard/Scripts/Misc/DataPath.cs
 COPY ./ServerList.cs /shard/Scripts/Misc/ServerList.cs
 COPY ./SocketOptions.cs /shard/Scripts/Misc/SocketOptions.cs
 
+RUN sed -i "s/OWNER_USERNAME/${OWNER_USERNAME}/" /shard/Scripts/Misc/AccountPrompt.cs
+RUN sed -i "s/OWNER_PASSWORD/${OWNER_PASSWORD}/" /shard/Scripts/Misc/AccountPrompt.cs
+RUN sed -i "s/SHARD_NAME/${SHARD_NAME}/" /shard/Scripts/Misc/ServerList.cs
+RUN sed -i "s/SHARD_PORT/${SHARD_PORT}/" /shard/Scripts/Misc/ServerList.cs
+RUN sed -i "s/SHARD_PORT/${SHARD_PORT}/" /shard/Scripts/Misc/SocketOptions.cs
+
+RUN mkdir -p /client
+COPY ./client /client
+RUN chmod -R 777 /client/
+
 RUN useradd -m -u 1000 clouduo -s /bin/bash && \
   chown -R clouduo:clouduo /shard/ && \
   chown -R clouduo:clouduo /entrypoint.sh
@@ -33,9 +48,6 @@ RUN echo "clouduo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 WORKDIR /shard
 
-EXPOSE 2593
-EXPOSE 2594
-EXPOSE 2595
-EXPOSE 2599
+EXPOSE ${SHARD_PORT}
 
 ENTRYPOINT ["/entrypoint.sh"]

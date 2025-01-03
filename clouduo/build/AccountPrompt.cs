@@ -16,7 +16,13 @@ namespace Server.Misc
 
                 Console.WriteLine("***Initial Admin Account Created***");
                 Console.WriteLine("User: OWNER_USERNAME");
-                Console.WriteLine("Password: OWNER_PASSWORD");
+
+                // Count the number of characters in the password
+                Console.Write("Password: ");
+                for (int i = 0; i < "OWNER_PASSWORD".Length; ++i)
+                {
+                    Console.Write("*");
+                }
             }
         }
     }

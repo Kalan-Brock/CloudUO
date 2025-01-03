@@ -13,7 +13,7 @@ fi
 
 # If the client folder has less than 2 files, exit the script
 if [ $(ls -1q client | wc -l) -lt 2 ]; then
-    echo "Cloud UO: client folder is empty. Please place your Ultima Online client files into the clouduo/build/client folder."
+    echo "Cloud UO: client folder is empty. Please place your Ultima Online client files into the clouduo/client folder."
     echo "Cloud UO: You can download the Ultima Online client from https://uo.com/Download/Ultima-Online-Download/"
     echo ""
     exit 1
